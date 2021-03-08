@@ -1,0 +1,204 @@
+<div class='container'>
+
+ 
+     <div class='col-lg-4 mb-3'>
+
+        <label for="id_page">Page:</label><input type="number" class='form-control' name="page" id="id_page" ng-model='page'>
+
+    </div>
+
+    <div class='col-lg-4 mb-3'>
+
+      <label for="id_pagesize">Pagesize:</label><input type="number" class='form-control' name="pagesize" required="" id="id_pagesize" ng-model='pagesize'>
+    </div>
+
+    <div class='col-lg-4 mb-3'>
+
+      <label for="id_fromdate">Fromdate:</label><input type="text" name="fromdate" class="datepicker form-control" required="" id="id_fromdate" ng-model='fromdate'>
+    </div>
+
+    <div class='col-lg-4 mb-3'>
+
+
+      <label for="id_todate">Todate:</label><input type="text" name="todate" class="datepicker form-control" required="" id="id_todate" ng-model='todate'>
+
+    </div>
+
+   <div class='col-lg-4 mb-3'>
+
+      <label for="id_order">Order:</label><select name="order" class='form-control' id="id_order" ng-model='order'> 
+
+        <option value="asc">asc</option>
+
+        <option value="desc">desc</option>
+
+      </select>
+    </div>
+
+
+
+    <div class='col-lg-4 mb-3'>
+
+      <label for="id_min_">Min :</label><input type="text" name="min_" class="datepicker form-control" required="" id="id_min_" ng-model='min_'>
+
+    </div>
+    <div class='col-lg-4 mb-3'>
+
+      <label for="id_max_">Max :</label><input type="text" name="max_" class="datepicker form-control" required="" id="id_max_" ng-model='max_'>
+    </div>
+
+    <div class='col-lg-4'>
+
+      <label for="id_sort">Sort:</label><select name="sort" id="id_sort" class='form-control' ng-model='sort'>
+        <option value="activity">activity</option>
+
+        <option value="votes">votes</option>
+
+        <option value="creation">creation</option>
+
+        <option value="hot">hot</option>
+
+        <option value="week">week</option>
+
+        <option value="month">month</option>
+
+      </select>
+    </div>
+    <div class='col-lg-4'>
+
+      <label for="id_tagged">Tagged:</label><input type="text" name="tagged" required="" id="id_tagged" class='form-control' ng-model='tag'>
+    </div>
+
+
+
+</div>
+
+
+
+</div>
+<div class='container'>
+
+
+<form ng-submit='getName();' >
+            <div class='col-lg-10 mb-3'>
+            <label for="id_query">query:</label><input type="text" class='form-control' name="query" id="id_query" ng-model='query' >
+            </div>
+  
+  <div class='col-lg-2 mb-3'  id='submit'>
+   <label for="id_submit">submit:</label><input  type="submit" value='submit' id='id_submit' class='form-control'      
+ />
+ </div>
+</form>
+</div>
+
+
+
+<div class="col-lg-6" ng-model='value'>
+   <div  ng-if='value'>
+
+
+
+  <ul class='error'>
+
+    <h4>
+      <li class='error' >parameter:{{value}}</li>
+      <li class='error'>error:{{error}}</li>
+      <li class='error'>errorcode:{{id}}</li>
+  </h4>
+
+
+
+  </ul>
+</div>
+</div>
+
+<div ng-model='throttle'></div>
+  <div ng-if='throttle'>
+  <ul class='error'>
+    <h4>
+
+
+        <li class='error'>parameter:{{throttle}}</li>
+        <li class='error'>status:{{status}}</li>
+        <li class='error'>statustext:{{statusText}}</li>
+    </h4>
+   </ul>
+ </div>
+
+
+</div>
+
+
+
+
+<div ng-if="!value" class='container' >
+  <div ng-if="!throttle">
+
+
+<div    class="col-lg-14 " dir-paginate="products in product_rows | itemsPerPage:10" style="color:black;margin:20px;">
+      <div class="thumbnail" style="border:1px ridge black;">
+
+  <ul>
+  <h4><li>Title:{{products.title}}</li></h4>
+     <h5> 
+
+              <li>ID:{{products.id}}</li>
+                            <li>Tags:{{ products.tags }}</li>
+
+              <li>
+                Link:<a ng-href="{{products.link}}">{{products.link}}</a>             
+              </li>
+
+              <li>Query:<a ng-href="{{products.Query}}" >{{products.Query}}</a></li>
+
+
+
+      
+
+
+  </h5>
+
+  </ul>
+</div>
+
+
+</div>
+<div >
+  <dir-pagination-controls></dir-pagination-controls>
+</div>
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
+<script>
+  $(function(){
+    $(".datepicker").datepicker({
+        dateFormat: "yy-mm-dd"
+    });
+});
+
+
+
+
+
+
+</script>
+
